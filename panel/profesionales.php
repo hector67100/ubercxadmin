@@ -453,7 +453,7 @@ require('php_lib/include-pagina-restringida.php'); //el incude para vericar que 
                             		$numero=1;
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         $idus = $row["id"];
-                                        $nombres = $row["full_name"];
+                                        $nombres = $row["nombre"];
                                         $password = $row["password"];
                                         $email = $row["email"];
                                         $membership = $row["membership"];
