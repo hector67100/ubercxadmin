@@ -13,6 +13,7 @@ mysqli_set_charset($link, "utf8");
 
 $idCategoria = $_REQUEST['idus']; // Obtener el ID de la categoría a editar
 $nombres = $_REQUEST['nombres'];
+$codigo = $_REQUEST['codigo'];
 
 $visible = $_REQUEST['visible'];
 
@@ -50,7 +51,7 @@ if (isset($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
             }
 
             // Actualizar los datos de la categoría en la base de datos, incluyendo la nueva imagen
-            $query = "UPDATE provincia SET name = '$nombres', status = '$visible', image = '$fileName' WHERE id = '$idCategoria'";
+            $query = "UPDATE provincia SET name = '$nombres', status = '$visible', image = '$fileName', codigo = '$codigo' WHERE id = '$idCategoria'";
             mysqli_query($link, $query) or die(mysqli_error($link));
         } else {
             echo "Error: No se pudo guardar la imagen en el servidor.";

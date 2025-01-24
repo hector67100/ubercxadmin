@@ -399,6 +399,8 @@ require('php_lib/include-pagina-restringida.php'); //el incude para vericar que 
                                                         <div class="col-xl-12">
                                                             <label for="task-name" class="form-label">Nombre</label>
                                                             <input type="text" class="form-control" id="task-name" name="nombres" placeholder="" required>
+                                                            <label for="task-code" class="form-label">codigo</label>
+                                                            <input type="text" class="form-control" id="task-code" name="codigo" placeholder="" required>
                                                         </div>
                                                       
                                                         <div class="col-xl-12">
@@ -437,7 +439,7 @@ require('php_lib/include-pagina-restringida.php'); //el incude para vericar que 
                                     <thead>
                                         <tr>
                                             <th>Nombre</th>
-                                 
+                                            <th>codigo</th>
                                             <th>Visible</th>
                                             <th>Acción</th>
                                         </tr>
@@ -452,14 +454,16 @@ require('php_lib/include-pagina-restringida.php'); //el incude para vericar que 
                                         $nombres = $row["name"];
                                         $password = $row["status"];
                                         $visible = $row["status"];
+                                        $codigo = $row["codigo"];
                                      
                                         $imageName = $row['image'];
                                         if($password==1){$password="Si";}else{$password="No";}
                                         
                                         echo'<tr>
                                             <td>'.$nombres.'</td>
-                                       
+                                            <td>'.$codigo.'</td>
                                             <td>'.$password.'</td>
+                                            
                                           
                                             <td><div class="btn-list">
                                                         <a href="javascript:void(0)" title="Editar" class="btn btn-icon btn-sm btn-primary-light" data-bs-toggle="modal" data-bs-target="#edit-task'.$numero.'"><i class="ti ti-edit"></i></a>
@@ -498,6 +502,8 @@ require('php_lib/include-pagina-restringida.php'); //el incude para vericar que 
                                                         echo'</div><div class="col-xl-12">
                                                             <label for="task-name" class="form-label">Nombre</label>
                                                             <input type="text" class="form-control" id="task-name" name="nombres" placeholder="" value="'.$nombres.'" required>
+                                                            <label for="task-code" class="form-label">codigo</label>
+                                                            <input type="text" class="form-control" id="task-code" name="codigo" placeholder="" value="'.$codigo.'" required>
                                                         </div>
                                                         
                                                         <div class="col-xl-12">

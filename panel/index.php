@@ -544,7 +544,7 @@ body {
     <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 
      <!-- Particles JS -->
-   
+     <script src="../assets/libs/particles.js/particles.js"></script>
 
     
      <script src="../assets/js/basic-password.js"></script>

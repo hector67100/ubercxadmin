@@ -12,7 +12,7 @@ if (!$db_selected) {
 mysqli_set_charset($link, "utf8");
 
 $nombres = $_REQUEST['nombres'];
-
+$codigo = $_REQUEST['codigo'];
 $visible = $_REQUEST['visible'];
 
 // Procesar la imagen
@@ -38,7 +38,7 @@ if (isset($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
         // Mover la imagen de la carpeta temporal a la carpeta uploads/category/
         if (move_uploaded_file($fotoTmpPath, $uploadFilePath)) {
             // Guardar solo el nombre de la imagen (o la ruta relativa) en la base de datos
-            $query = "INSERT INTO provincia (name, status, image) VALUES ('$nombres', '$visible', '$fileName')";
+            $query = "INSERT INTO provincia (name, status, image, codigo) VALUES ('$nombres', '$visible', '$fileName', '$codigo')";
             mysqli_query($link, $query) or die(mysqli_error($link));
         } else {
             echo "Error: No se pudo guardar la imagen en el servidor.";
@@ -50,7 +50,7 @@ if (isset($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
     }
 } else {
     // Si no se sube imagen, se guarda la categor���a sin la columna 'image'
-    $query = "INSERT INTO provincia (name, status) VALUES ('$nombres', '$visible')";
+    $query = "INSERT INTO provincia (name, status, codigo) VALUES ('$nombres', '$visible', '$codigo')";
     mysqli_query($link, $query) or die(mysqli_error($link));
 }
 
